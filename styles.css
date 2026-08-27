@@ -472,73 +472,66 @@ h3 {
   }
 }
 
-/* === 3D Orbiting Project Sphere (test site) === */
-.sphere-wrap {
+
+/* === Circular Card Ring (test site) === */
+.ring-wrap {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 18px;
-  padding: 20px 0 8px;
+  gap: 16px;
+  padding: 30px 0;
 }
-.sphere {
+.ring {
   position: relative;
-  width: 320px;
-  height: 320px;
+  width: 360px;
+  height: 360px;
   margin: 0 auto;
-  transform-style: preserve-3d;
-  perspective: 900px;
   cursor: grab;
 }
-.sphere:active { cursor: grabbing; }
-.sphere-core {
+.ring:active { cursor: grabbing; }
+.ring-core {
   position: absolute;
   top: 50%; left: 50%;
-  width: 84px; height: 84px;
-  margin: -42px 0 0 -42px;
+  width: 96px; height: 96px;
+  margin: -48px 0 0 -48px;
   border-radius: 50%;
   border: none;
   background: radial-gradient(circle at 32% 28%, #e7a83f, #b6553a 70%, #8a3f29);
-  box-shadow: 0 0 38px rgba(182, 85, 58, 0.55), inset -8px -8px 18px rgba(0,0,0,0.35);
+  box-shadow: 0 0 40px rgba(182, 85, 58, 0.5), inset -8px -8px 18px rgba(0,0,0,0.35);
 }
-.sphere-item {
+.ring-card {
   position: absolute;
   top: 50%; left: 50%;
-  width: 116px;
-  margin: -22px 0 0 -58px;
-  padding: 10px 12px;
-  border-radius: 999px;
+  width: 150px;
+  margin: -42px 0 0 -75px;
+  padding: 14px 16px;
+  border-radius: 10px;
   border: 1px solid var(--line, #ddd);
   background: var(--panel, #fff);
-  color: var(--ink, #151515);
-  font-weight: 700;
-  font-size: 0.86rem;
-  text-align: center;
-  text-decoration: none;
   box-shadow: var(--shadow, 0 10px 30px rgba(0,0,0,0.12));
-  transform-style: preserve-3d;
+  text-decoration: none;
+  color: var(--ink, #151515);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  transform-origin: center center;
   transition: box-shadow 0.2s ease, border-color 0.2s ease;
-  white-space: nowrap;
 }
-.sphere-item:hover,
-.sphere-item:focus-visible {
+.ring-card:hover,
+.ring-card:focus-visible {
   border-color: var(--accent-dark, #b6553a);
-  box-shadow: 0 0 0 3px rgba(182,85,58,0.25), var(--shadow, 0 10px 30px rgba(0,0,0,0.12));
+  box-shadow: 0 0 0 3px rgba(182,85,58,0.22), var(--shadow, 0 10px 30px rgba(0,0,0,0.12));
   outline: none;
 }
-.sphere-hint {
-  font-size: 0.8rem;
-  color: var(--muted, #666);
-  text-align: center;
-}
-/* Reduced motion / no-JS fallback: lay items out as a simple centered row */
+.ring-card-title { font-weight: 800; font-size: 0.98rem; }
+.ring-card-sub { font-size: 0.78rem; color: var(--muted, #666); }
+.ring-hint { font-size: 0.8rem; color: var(--muted, #666); }
 @media (prefers-reduced-motion: reduce) {
-  .sphere { height: auto; perspective: none; transform: none !important; }
-  .sphere-core { display: none; }
-  .sphere-item {
-    position: static;
-    margin: 6px;
-    display: inline-block;
-    transform: none !important;
-  }
-  .sphere { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; width: auto; height: auto; }
+  .ring { width: auto; height: auto; display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
+  .ring-core { display: none; }
+  .ring-card { position: static; margin: 0; transform: none !important; }
+}
+@media (max-width: 480px) {
+  .ring { width: 300px; height: 300px; }
+  .ring-card { width: 128px; margin: -38px 0 0 -64px; }
 }
