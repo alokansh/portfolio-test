@@ -471,3 +471,74 @@ h3 {
     display: none;
   }
 }
+
+/* === 3D Orbiting Project Sphere (test site) === */
+.sphere-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  padding: 20px 0 8px;
+}
+.sphere {
+  position: relative;
+  width: 320px;
+  height: 320px;
+  margin: 0 auto;
+  transform-style: preserve-3d;
+  perspective: 900px;
+  cursor: grab;
+}
+.sphere:active { cursor: grabbing; }
+.sphere-core {
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 84px; height: 84px;
+  margin: -42px 0 0 -42px;
+  border-radius: 50%;
+  border: none;
+  background: radial-gradient(circle at 32% 28%, #e7a83f, #b6553a 70%, #8a3f29);
+  box-shadow: 0 0 38px rgba(182, 85, 58, 0.55), inset -8px -8px 18px rgba(0,0,0,0.35);
+}
+.sphere-item {
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 116px;
+  margin: -22px 0 0 -58px;
+  padding: 10px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--line, #ddd);
+  background: var(--panel, #fff);
+  color: var(--ink, #151515);
+  font-weight: 700;
+  font-size: 0.86rem;
+  text-align: center;
+  text-decoration: none;
+  box-shadow: var(--shadow, 0 10px 30px rgba(0,0,0,0.12));
+  transform-style: preserve-3d;
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+  white-space: nowrap;
+}
+.sphere-item:hover,
+.sphere-item:focus-visible {
+  border-color: var(--accent-dark, #b6553a);
+  box-shadow: 0 0 0 3px rgba(182,85,58,0.25), var(--shadow, 0 10px 30px rgba(0,0,0,0.12));
+  outline: none;
+}
+.sphere-hint {
+  font-size: 0.8rem;
+  color: var(--muted, #666);
+  text-align: center;
+}
+/* Reduced motion / no-JS fallback: lay items out as a simple centered row */
+@media (prefers-reduced-motion: reduce) {
+  .sphere { height: auto; perspective: none; transform: none !important; }
+  .sphere-core { display: none; }
+  .sphere-item {
+    position: static;
+    margin: 6px;
+    display: inline-block;
+    transform: none !important;
+  }
+  .sphere { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; width: auto; height: auto; }
+}
