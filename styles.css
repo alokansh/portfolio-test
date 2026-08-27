@@ -258,6 +258,21 @@ h3 {
   padding: clamp(24px, 5vw, 44px);
 }
 
+/* Horizontal tile layout for project cards (test site) */
+.section.work {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.section.work .section-heading {
+  grid-column: 1 / -1;
+}
+@media (max-width: 900px) {
+  .section.work {
+    grid-template-columns: 1fr;
+  }
+}
+
 .work-meta {
   display: flex;
   flex-wrap: wrap;
