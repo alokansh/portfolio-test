@@ -3,12 +3,12 @@ import PageHeader from "../components/PageHeader";
 import TransactionRow from "../components/TransactionRow";
 import { parties, transactions } from "../mockData";
 import { inr } from "../lib/format";
-import { useToast as useToastHook } from "../components/Toast";
+import { useToast } from "../components/Toast";
 
 export default function PartyDetail() {
   const { id } = useParams();
   const party = parties.find((p) => p.id === id);
-  const toast = useToastHook();
+  const toast = useToast();
 
   if (!party) {
     return (

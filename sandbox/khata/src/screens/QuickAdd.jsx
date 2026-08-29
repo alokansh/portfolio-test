@@ -2,7 +2,7 @@ import { useState } from "react";
 import BottomSheet from "../components/BottomSheet";
 import TypePill from "../components/TypePill";
 import { categories, parties } from "../mockData";
-import { useToastHook } from "../components/Toast";
+import { useToast } from "../components/Toast";
 
 const TYPES = [
   { key: "received", label: "Received" },
@@ -13,7 +13,7 @@ const TYPES = [
 const BOOKS = ["Personal", "Shop", "Project", "Lending"];
 
 export default function QuickAdd({ onClose }) {
-  const toast = useToastHook();
+  const toast = useToast();
   const [type, setType] = useState("received");
   const [amount, setAmount] = useState("");
   const [book, setBook] = useState("Personal");

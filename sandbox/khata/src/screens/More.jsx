@@ -1,7 +1,7 @@
 import PageHeader from "../components/PageHeader";
 import WalletCard from "../components/WalletCard";
 import { wallets } from "../mockData";
-import { useToastHook } from "../components/Toast";
+import { useToast } from "../components/Toast";
 
 const LINKS = [
   { label: "Projects", to: "/projects" },
@@ -11,7 +11,7 @@ const LINKS = [
 ];
 
 export default function More() {
-  const toast = useToastHook();
+  const toast = useToast();
   return (
     <div>
       <PageHeader title="More" />
