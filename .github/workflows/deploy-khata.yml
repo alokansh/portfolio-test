@@ -1,0 +1,55 @@
+name: Deploy Khata sandbox to Pages
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "sandbox/khata/**"
+      - ".github/workflows/deploy-khata.yml"
+  # Allow manual trigger
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow one concurrent deployment
+concurrency:
+  group: pages-khata
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install & Build Khata
+        working-directory: sandbox/khata
+        run: |
+          npm install
+          npm run build
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # upload only the built static site
+          path: sandbox/khata/dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}sandbox/khata/
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
