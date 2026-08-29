@@ -6,7 +6,6 @@ on:
     paths:
       - "sandbox/khata/**"
       - ".github/workflows/deploy-khata.yml"
-  # Allow manual trigger
   workflow_dispatch:
 
 permissions:
@@ -14,7 +13,6 @@ permissions:
   pages: write
   id-token: write
 
-# Allow one concurrent deployment
 concurrency:
   group: pages-khata
   cancel-in-progress: true
@@ -37,18 +35,28 @@ jobs:
           npm install
           npm run build
 
+      - name: Stage artifact under sandbox/khata/
+        # deploy-pages publishes the artifact as the site root,
+        # so we nest the built files at sandbox/khata/ to keep the URL
+        # https://alokansh.github.io/portfolio-test/sandbox/khata/
+        run: |
+          mkdir -p public-sandbox/sandbox/khata
+          cp -r sandbox/khata/dist/* public-sandbox/sandbox/khata/
+          # keep the existing test portfolio intact at the root
+          cp -r index.html styles.css script.js public-sandbox/ 2>/dev/null || true
+          cp -r assets public-sandbox/ 2>/dev/null || true
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # upload only the built static site
-          path: sandbox/khata/dist
+          path: public-sandbox
 
   deploy:
     needs: build
     runs-on: ubuntu-latest
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}sandbox/khata/
+      url: https://alokansh.github.io/portfolio-test/sandbox/khata/
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
