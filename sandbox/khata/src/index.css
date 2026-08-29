@@ -1,0 +1,66 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-primary: #5f259f;
+  --color-primary-dk: #3d1466;
+  --color-primary-lt: #7b3bb8;
+  --color-bg: #f4f4f6;
+  --color-card: #ffffff;
+  --color-received: #16a34a;
+  --color-paid: #dc2626;
+  --color-lent: #2563eb;
+  --color-borrowed: #ea580c;
+  --color-text-1: #111827;
+  --color-text-2: #6b7280;
+  --color-border: #e5e7eb;
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+body {
+  font-family: "Inter", system-ui, sans-serif;
+  background: var(--color-bg);
+  color: var(--color-text-1);
+  font-size: 14px;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* App is capped to a mobile width and centered on desktop for testing */
+.app-shell {
+  max-width: 430px;
+  margin: 0 auto;
+  min-height: 100vh;
+  background: var(--color-bg);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-scroll {
+  flex: 1;
+  overflow-y: auto;
+  padding-bottom: 96px; /* room for bottom nav + FAB */
+}
+
+/* Hide horizontal scrollbars on strips */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
