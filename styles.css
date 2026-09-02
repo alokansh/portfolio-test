@@ -488,8 +488,7 @@ h3 {
   align-items: center;
   justify-content: space-between;
   padding: 10px 16px;
-  background: rgba(247, 244, 238, 0.82);
-  backdrop-filter: blur(14px);
+  background: #f7f4ee;
   border: 1px solid var(--line);
   border-radius: 999px;
   transition: border-color 0.3s, box-shadow 0.3s;
