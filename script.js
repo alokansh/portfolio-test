@@ -20,7 +20,6 @@ const sectionObserver = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {
       if (!entry.isIntersecting) return;
-
       navLinks.forEach((link) => {
         link.classList.toggle("is-active", link.getAttribute("href") === `#${entry.target.id}`);
       });
@@ -35,7 +34,6 @@ document.querySelectorAll("section[id]").forEach((section) => {
 
 window.addEventListener("pointermove", (event) => {
   if (!glow) return;
-
   glow.style.transform = `translate3d(${event.clientX - 130}px, ${event.clientY - 130}px, 0)`;
 });
 
@@ -52,9 +50,9 @@ window.addEventListener("scroll", () => {
     }
   }
 }, { passive: true });
+
+document.querySelectorAll(".button, .contact-links a").forEach((link) => {
   link.addEventListener("pointerdown", () => link.classList.add("is-pressed"));
   link.addEventListener("pointerup", () => link.classList.remove("is-pressed"));
   link.addEventListener("pointerleave", () => link.classList.remove("is-pressed"));
 });
-
-
