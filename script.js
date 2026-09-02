@@ -39,7 +39,19 @@ window.addEventListener("pointermove", (event) => {
   glow.style.transform = `translate3d(${event.clientX - 130}px, ${event.clientY - 130}px, 0)`;
 });
 
-document.querySelectorAll(".button, .contact-links a").forEach((link) => {
+// Floating nav scroll effect
+const nav = document.getElementById("nav");
+window.addEventListener("scroll", () => {
+  if (nav) {
+    if (window.scrollY > 80) {
+      nav.style.borderColor = "rgba(15, 118, 110, 0.4)";
+      nav.style.boxShadow = "0 4px 20px rgba(21, 21, 21, 0.06)";
+    } else {
+      nav.style.borderColor = "var(--line)";
+      nav.style.boxShadow = "none";
+    }
+  }
+}, { passive: true });
   link.addEventListener("pointerdown", () => link.classList.add("is-pressed"));
   link.addEventListener("pointerup", () => link.classList.remove("is-pressed"));
   link.addEventListener("pointerleave", () => link.classList.remove("is-pressed"));

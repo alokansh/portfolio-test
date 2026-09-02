@@ -89,13 +89,15 @@
   <div class="test-banner">⚠️ TEST SITE - not the live portfolio (anshalok.dev)</div>
   <div class="cursor-glow" aria-hidden="true"></div>
 
-  <header class="site-header">
-    <a class="logo" href="#top" aria-label="Ansh Alok home">AA</a>
-    <nav class="nav-links" aria-label="Primary navigation">
+  <header class="nav" id="nav">
+    <a href="#top" class="nav-logo">AA</a>
+    <div class="nav-links">
       <a href="#work">Work</a>
+      <a href="#writing">Writing</a>
       <a href="#skills">Skills</a>
       <a href="#contact">Contact</a>
-    </nav>
+    </div>
+    <a href="#contact" class="nav-cta">Let's talk</a>
   </header>
 
   <main id="top">
@@ -128,6 +130,27 @@
         </div>
       </aside>
     </section>
+
+    <div class="marquee-track">
+      <div class="marquee-content">
+        <span>Web Development</span><span class="dot">•</span>
+        <span>Content Strategy</span><span class="dot">•</span>
+        <span>Applied Psychology</span><span class="dot">•</span>
+        <span>Data Analytics</span><span class="dot">•</span>
+        <span>Project Management</span><span class="dot">•</span>
+        <span>Market Research</span><span class="dot">•</span>
+        <span>Negotiation</span><span class="dot">•</span>
+      </div>
+      <div class="marquee-content" aria-hidden="true">
+        <span>Web Development</span><span class="dot">•</span>
+        <span>Content Strategy</span><span class="dot">•</span>
+        <span>Applied Psychology</span><span class="dot">•</span>
+        <span>Data Analytics</span><span class="dot">•</span>
+        <span>Project Management</span><span class="dot">•</span>
+        <span>Market Research</span><span class="dot">•</span>
+        <span>Negotiation</span><span class="dot">•</span>
+      </div>
+    </div>
 
     <section class="section work" id="work">
       <div class="section-heading reveal">
@@ -192,6 +215,40 @@
           <span>Dashboard</span>
         </div>
       </div>
+    </section>
+
+    <section class="section writing" id="writing">
+      <p class="eyebrow reveal">Writing</p>
+      <h2 class="section-title reveal">From Medium</h2>
+      <p class="section-intro reveal">
+        I write about perfectionism, psychology, shipping work, and the
+        intersection of human behavior and technology.
+      </p>
+
+      <div class="posts">
+        <a href="https://medium.com/@anshalok/perfectionism-haunts-me-8063d3c300c5" target="_blank" class="post-card reveal">
+          <div class="post-date">Sept 2, 2026</div>
+          <h3 class="post-title">Perfectionism haunts me.</h3>
+          <p class="post-excerpt">
+            One word — or I can say one idea — that has reduced my productivity
+            is none other than my obsession with perfectionism...
+          </p>
+          <span class="post-read">Read on Medium →</span>
+        </a>
+        <a href="https://medium.com/@anshalok/psychological-view-on-impulsive-purchases-07187a4f8b54" target="_blank" class="post-card reveal">
+          <div class="post-date">Jan 13, 2026</div>
+          <h3 class="post-title">Psychological View on Impulsive Purchases</h3>
+          <p class="post-excerpt">
+            Every time you go to the market, you end up buying impulsively,
+            you promise yourself you won't buy unnecessarily...
+          </p>
+          <span class="post-read">Read on Medium →</span>
+        </a>
+      </div>
+
+      <a href="https://medium.com/@anshalok" target="_blank" class="more-link reveal">
+        See all articles on Medium →
+      </a>
     </section>
 
     <section class="section" id="skills">
