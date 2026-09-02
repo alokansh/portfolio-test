@@ -492,7 +492,6 @@ h3 {
   backdrop-filter: blur(14px);
   border: 1px solid var(--line);
   border-radius: 999px;
-  z-index: 100;
   transition: border-color 0.3s, box-shadow 0.3s;
 }
 .nav-logo {
@@ -589,7 +588,7 @@ h3 {
     justify-content: center;
     gap: 28px;
     padding: 24px;
-    z-index: 99;
+    z-index: 999;
     backdrop-filter: blur(20px);
   }
   .nav-links.open {
