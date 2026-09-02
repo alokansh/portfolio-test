@@ -45,6 +45,22 @@ setTimeout(() => {
     }
   });
 }, 500);
+// Burger menu
+const navBurger = document.getElementById("navBurger");
+const navLinksEl = document.querySelector(".nav-links");
+if (navBurger && navLinksEl) {
+  navBurger.addEventListener("click", () => {
+    navBurger.classList.toggle("active");
+    navLinksEl.classList.toggle("open");
+  });
+  navLinksEl.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => {
+      navBurger.classList.remove("active");
+      navLinksEl.classList.remove("open");
+    });
+  });
+}
+
 const nav = document.getElementById("nav");
 window.addEventListener("scroll", () => {
   if (nav) {
