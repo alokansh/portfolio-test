@@ -606,12 +606,19 @@ h3 {
     top: 48px;
     width: calc(100% - 28px);
     padding: 8px 12px;
-  }
-  .nav-cta {
-    display: none;
+    overflow-x: auto;
   }
   .nav-burger {
+    display: none;
+  }
+  .nav-links {
     display: flex;
+    gap: 4px;
+  }
+  .nav-links a {
+    font-size: 12px;
+    padding: 6px 10px;
+    white-space: nowrap;
   }
   .hero {
     padding-top: 120px;
