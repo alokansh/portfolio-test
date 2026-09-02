@@ -606,7 +606,7 @@ h3 {
     top: 48px;
     width: calc(100% - 28px);
     padding: 8px 12px;
-    overflow-x: auto;
+    overflow-x: visible;
   }
   .nav-burger {
     display: none;
@@ -619,6 +619,11 @@ h3 {
     font-size: 12px;
     padding: 6px 10px;
     white-space: nowrap;
+  }
+  .nav-cta {
+    display: inline-flex;
+    font-size: 11px;
+    padding: 7px 14px;
   }
   .hero {
     padding-top: 120px;
