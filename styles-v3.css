@@ -468,12 +468,11 @@ h3 {
     width: 100%;
   }
 
-  .work-meta,
   .impact-list,
   .skill-grid,
   .contact-links {
-    display: grid;
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-wrap: wrap;
   }
 }
 
