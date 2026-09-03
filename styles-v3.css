@@ -492,6 +492,7 @@ h3 {
   border: 1px solid var(--line);
   border-radius: 999px;
   transition: border-color 0.3s, box-shadow 0.3s;
+  z-index: 10 ;
 }
 .nav-logo {
   font-family: "Outfit", Arial, sans-serif;
