@@ -604,6 +604,16 @@ h3 {
   .hero {
     padding-top: 120px;
   }
+  .skill-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+  .skill-grid span {
+    font-size: 11px;
+    padding: 6px 10px;
+    text-align: center;
+  }
 }
 
 /* Marquee */
