@@ -488,7 +488,7 @@ h3 {
   align-items: center;
   justify-content: space-between;
   padding: 10px 16px;
-  background: #f7f4ee;
+  background: #ede1b7;
   border: 1px solid var(--line);
   border-radius: 999px;
   transition: border-color 0.3s, box-shadow 0.3s;
@@ -598,40 +598,7 @@ h3 {
   .mobile-menu { display: none !important; }
 }
 
-@media (max-width: 700px) {
-  .nav {
-    top: 48px;
-    width: calc(100% - 28px);
-    padding: 8px 12px;
-    overflow-x: auto;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-    background: #f7f4ee !important;
-    border: 1px solid rgba(21, 21, 21, 0.15);
-    box-shadow: 0 4px 20px rgba(21, 21, 21, 0.08);
-    backdrop-filter: none;
-  }
-  .nav-burger {
-    display: none;
-  }
-  .nav-links {
-    display: flex;
-    gap: 4px;
-  }
-  .nav-links a {
-    font-size: 12px;
-    padding: 6px 10px;
-    white-space: nowrap;
-  }
-  .nav-cta {
-    display: inline-flex;
-    font-size: 11px;
-    padding: 7px 14px;
-  }
-  .hero {
-    padding-top: 120px;
-  }
-}
+
 
 /* Marquee */
 .marquee-track {
