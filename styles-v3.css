@@ -475,6 +475,7 @@ h3 {
   .cert-grid { grid-template-columns: 1fr; }
 }
 
+
 /* Floating nav */
 .nav {
   position: fixed;
@@ -599,7 +600,11 @@ h3 {
   .mobile-menu { display: none !important; }
 }
 
-
+@medias (max-width: 700px) {
+  .hero { 
+    padding-top: 120px;
+  }
+}
 
 /* Marquee */
 .marquee-track {
