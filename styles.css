@@ -714,8 +714,8 @@ mark {
 /* -------------------------- Page-turn prototype -------------------------- */
 .page-flip-scene {
   position: relative;
-  height: 190vh;
-  perspective: 1800px;
+  height: 220vh;
+  perspective: 1400px;
   view-timeline-name: --page-turn;
   view-timeline-axis: block;
 }
@@ -730,47 +730,92 @@ mark {
   position: absolute;
   inset: 0 auto auto 50%;
   width: min(1080px, calc(100% - 40px));
+  height: 100%;
   margin: 0;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
   transform-style: preserve-3d;
-  backface-visibility: visible;
-  -webkit-backface-visibility: visible;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
   transform-origin: left center;
   will-change: transform;
   overflow: visible;
 }
-.flip-page > * {
+.flip-face {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  min-height: 100%;
+  padding: clamp(30px, 5vw, 68px) clamp(24px, 5vw, 74px);
+  padding-left: clamp(46px, 7vw, 104px);
+  background-color: var(--paper);
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent 0,
+    transparent 37px,
+    var(--rule) 37px,
+    var(--rule) 38px
+  );
+  background-position: 0 8px;
+  border: 1px solid var(--paper-edge);
+  border-radius: 6px;
+  box-shadow: var(--shadow-page);
+  transform-style: preserve-3d;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
+}
+.flip-face::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: clamp(34px, 5.2vw, 76px);
+  width: 2px;
+  background: var(--margin-red);
+  opacity: 0.7;
+  pointer-events: none;
+}
+.flip-face::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 42px;
+  height: 42px;
+  background: linear-gradient(225deg, var(--paper-2) 0 50%, transparent 50%);
+  border-bottom-left-radius: 6px;
+  box-shadow: -3px 3px 6px rgba(40, 32, 18, 0.10);
+  pointer-events: none;
+}
+.flip-face-front { transform: rotateY(0deg); }
+.flip-face-back {
+  display: grid;
+  place-items: center;
+  transform: rotateY(180deg);
+  background-color: var(--paper-2);
+}
+.reverse-page-mark {
+  color: var(--ink-soft);
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  transform: rotate(4deg);
 }
 .flip-page-front {
   z-index: 2;
   transform: translateX(-50%) rotateY(0deg);
   animation: notebookPageTurn 1s linear both;
   animation-timeline: --page-turn;
-  animation-range: entry 0% exit 100%;
+  animation-range: 80% 100%;
 }
 .flip-page-back {
   z-index: 1;
-  transform: translateX(-50%) rotateY(0deg);
-  box-shadow: var(--shadow-page);
+  transform: translateX(-50%);
 }
 @keyframes notebookPageTurn {
-  from {
-    transform: translateX(-50%) rotateY(0deg);
-  }
-  to {
-    transform: translateX(-50%) rotateY(-180deg);
-  }
-}
-.flip-page::after {
-  z-index: 4;
-}
-.flip-page-front::before,
-.flip-page-back::before {
-  z-index: 5;
-}
-.flip-page-front::after {
-  box-shadow: -8px 12px 18px rgba(40, 32, 18, 0.12);
+  from { transform: translateX(-50%) rotateY(0deg); }
+  to { transform: translateX(-50%) rotateY(-180deg); }
 }
 @media (prefers-reduced-motion: reduce) {
   .page-flip-scene { height: auto; }
@@ -779,9 +824,15 @@ mark {
     position: relative;
     inset: auto;
     width: min(1080px, calc(100% - 40px));
+    height: auto;
     transform: none !important;
-    overflow: visible;
   }
+  .flip-face {
+    position: relative;
+    min-height: 0;
+    transform: none !important;
+  }
+  .flip-face-back { display: none; }
   .flip-page-back { margin-top: 26px; }
 }
 
