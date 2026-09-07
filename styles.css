@@ -125,7 +125,7 @@ h1, h2, h3, p { margin-top: 0; }
   border: 1px solid var(--paper-edge);
   border-radius: 6px;
   box-shadow: var(--shadow-page);
-  /* horizontal ruled lines */
+  overflow: visible;
   background-image: repeating-linear-gradient(
     to bottom,
     transparent 0,
@@ -709,6 +709,71 @@ mark {
 .reveal.is-visible {
   opacity: 1;
   transform: translateY(0) rotate(0deg);
+}
+
+/* -------------------------- Page-turn prototype -------------------------- */
+.page-flip-scene {
+  position: relative;
+  height: 190vh;
+  perspective: 1800px;
+  view-timeline-name: --page-turn;
+  view-timeline-axis: block;
+}
+.page-flip-stage {
+  position: sticky;
+  top: 16px;
+  height: calc(100vh - 32px);
+  transform-style: preserve-3d;
+  isolation: isolate;
+}
+.flip-page {
+  position: absolute;
+  inset: 0 auto auto 50%;
+  width: min(1080px, calc(100% - 40px));
+  margin: 0;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform-origin: top center;
+  will-change: transform;
+  overflow: visible;
+}
+.flip-page-front {
+  z-index: 2;
+  transform: translateX(-50%) rotateX(0deg);
+  animation: notebookPageTurn 1s linear both;
+  animation-timeline: --page-turn;
+  animation-range: entry 0% exit 100%;
+}
+.flip-page-back {
+  z-index: 1;
+  transform: translateX(-50%) rotateX(0deg);
+}
+@keyframes notebookPageTurn {
+  from { transform: translateX(-50%) rotateX(0deg); }
+  to { transform: translateX(-50%) rotateX(-180deg); }
+}
+.flip-page::after {
+  z-index: 4;
+}
+.flip-page-front::before,
+.flip-page-back::before {
+  z-index: 5;
+}
+.flip-page-front::after {
+  box-shadow: -8px 12px 18px rgba(40, 32, 18, 0.12);
+}
+@media (prefers-reduced-motion: reduce) {
+  .page-flip-scene { height: auto; }
+  .page-flip-stage { position: relative; height: auto; }
+  .flip-page {
+    position: relative;
+    inset: auto;
+    width: min(1080px, calc(100% - 40px));
+    transform: none !important;
+    overflow: visible;
+  }
+  .flip-page-back { margin-top: 26px; }
 }
 
 /* ==========================================================================
