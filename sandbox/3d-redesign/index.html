@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#10100f">
+  <meta name="description" content="Ansh Alok builds thoughtful digital experiences at the intersection of technology, psychology, and communication.">
+  <meta property="og:title" content="Ansh Alok | Technology with a human point of view">
+  <meta property="og:description" content="Web developer, applied psychology student, and digital maker.">
+  <meta property="og:type" content="website">
+  <title>Ansh Alok | Technology with a human point of view</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script type="importmap">
+    {"imports":{"three":"https://unpkg.com/three@0.160.0/build/three.module.js"}}
+  </script>
+</head>
+<body>
+  <div class="noise" aria-hidden="true"></div>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Ansh Alok home"><span>AA</span><b>Ansh Alok</b></a>
+    <nav aria-label="Primary navigation">
+      <a href="#work">Work</a>
+      <a href="#thinking">Thinking</a>
+      <a href="#about">About</a>
+      <a class="nav-cta" href="#contact">Let's talk</a>
+    </nav>
+    <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false">Menu</button>
+  </header>
+
+  <main id="top">
+    <section class="hero section-shell">
+      <div class="hero-copy reveal">
+        <p class="eyebrow">Web developer · Applied psychology</p>
+        <h1>I build digital experiences with a human point of view.</h1>
+        <p class="hero-intro">I work across code, content, and behaviour to make useful things clearer, calmer, and more memorable.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#work">Explore the work <span>↘</span></a>
+          <a class="button button-quiet" href="#thinking">Read the thinking</a>
+        </div>
+      </div>
+      <div class="hero-visual reveal" aria-label="Interactive abstract 3D network representing the intersection of technology and psychology">
+        <div id="scene" class="scene"></div>
+        <div class="scene-caption"><span>01</span><span>technology / behaviour / craft</span></div>
+        <noscript><div class="scene-fallback">Technology<br><i>meets</i><br>behaviour.</div></noscript>
+      </div>
+    </section>
+
+    <section id="about" class="statement section-shell reveal">
+      <p class="section-label">The intersection</p>
+      <h2>Somewhere between a browser console and a psychology textbook, I found my way of working.</h2>
+      <p class="statement-detail">I am studying Computer Science &amp; Data Analytics at IIT Patna and Applied Psychology at Gautam Buddha University. That combination shapes how I design, build, explain, and improve digital experiences.</p>
+    </section>
+
+    <section id="work" class="work section-shell">
+      <div class="section-heading reveal"><p class="section-label">Selected work</p><h2>Things I have made.</h2></div>
+      <div class="project-stage">
+        <article class="project-card project-card-feature reveal" data-tilt>
+          <div class="project-top"><span>01</span><span>Psychology · Product</span></div>
+          <div class="project-art mindwise-art"><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="mindwise-core">M</div></div>
+          <div class="project-info"><h3>Mindwise</h3><p>A psychology-informed self-screening experience designed to make validated tools easier to approach and understand.</p><a href="https://alokansh.github.io/mindwise/" target="_blank" rel="noreferrer">Open project ↗</a></div>
+        </article>
+        <article class="project-card project-card-dark reveal" data-tilt>
+          <div class="project-top"><span>02</span><span>Commerce · Growth</span></div>
+          <div class="project-art fashion-art"><div class="fashion-word">HAPPY<br>FASHION</div><div class="fashion-line"></div></div>
+          <div class="project-info"><h3>Happy Fashion</h3><p>Digital commerce and growth work for a fashion business, bringing product, story, and conversion into one system.</p><a href="#contact">Discuss the work ↗</a></div>
+        </article>
+        <article class="project-card project-card-outline reveal" data-tilt>
+          <div class="project-top"><span>03</span><span>Writing · Research</span></div>
+          <div class="project-art writing-art"><span>ideas</span><span>in</span><span>motion</span></div>
+          <div class="project-info"><h3>Writing &amp; experiments</h3><p>Notes on technology, the mind, digital work, and the small observations that connect them.</p><a href="https://medium.com/@anshalok" target="_blank" rel="noreferrer">Read on Medium ↗</a></div>
+        </article>
+      </div>
+    </section>
+
+    <section id="thinking" class="thinking section-shell">
+      <div class="section-heading reveal"><p class="section-label">How I think</p><h2>Build the thing. Understand the person. Make it matter.</h2></div>
+      <div class="thinking-grid">
+        <div class="thinking-number reveal">01</div><div class="thinking-copy reveal"><h3>Make it useful</h3><p>Good interfaces respect attention. I look for the simplest structure that helps someone move forward.</p></div>
+        <div class="thinking-number reveal">02</div><div class="thinking-copy reveal"><h3>Look underneath</h3><p>Technology changes behaviour. Psychology helps me ask better questions about who the experience is really for.</p></div>
+        <div class="thinking-number reveal">03</div><div class="thinking-copy reveal"><h3>Keep learning</h3><p>Every project is a chance to test an idea, notice what failed, and leave the next version more thoughtful.</p></div>
+      </div>
+    </section>
+
+    <section class="toolkit section-shell reveal"><p class="section-label">Field kit</p><div class="toolkit-list"><span>HTML / CSS / JavaScript</span><span>Shopify</span><span>SEO &amp; content</span><span>Applied psychology</span><span>Data analytics</span><span>Creative writing</span></div></section>
+
+    <section id="contact" class="contact section-shell reveal"><div><p class="section-label">Leave a note</p><h2>Have something worth building?</h2></div><div class="contact-action"><p>Tell me what you are working on, what feels stuck, or what you want to explore.</p><a class="button button-primary" href="mailto:bhagatanshalok@gmail.com">Start a conversation <span>↗</span></a></div></section>
+  </main>
+
+  <footer class="site-footer section-shell"><span>© 2026 Ansh Alok</span><div><a href="https://github.com/alokansh" target="_blank" rel="noreferrer">GitHub</a><a href="https://www.linkedin.com/in/anshalok" target="_blank" rel="noreferrer">LinkedIn</a><a href="https://medium.com/@anshalok" target="_blank" rel="noreferrer">Medium</a></div></footer>
+  <script type="module" src="script.js"></script>
+</body>
+</html>
