@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rigveda Research Workspace</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand-mark">ॐ</div>
+      <p class="kicker">Private research workspace</p>
+      <h1>Śruti<br><em>Research</em></h1>
+      <p class="side-copy">A source-grounded way to read, search and compare the Vedic corpus.</p>
+
+      <nav class="collection-nav" aria-label="Collections">
+        <p class="nav-label">Collections</p>
+        <button class="collection active"><span class="collection-dot"></span>Ṛgveda <small>V1</small></button>
+        <button class="collection"><span class="collection-dot muted"></span>Yajurveda <small>soon</small></button>
+        <button class="collection"><span class="collection-dot muted"></span>Upaniṣads <small>soon</small></button>
+      </nav>
+
+      <div class="side-footer">
+        <span class="status-dot"></span>
+        <span>Local corpus connected</span>
+      </div>
+    </aside>
+
+    <main class="workspace">
+      <header class="topbar">
+        <span class="breadcrumb">Collections <b>/</b> Ṛgveda</span>
+        <span class="private-label">Private V1 <span>•</span> English answers</span>
+      </header>
+
+      <section class="hero-block">
+        <p class="kicker">The earliest layer</p>
+        <h2>What are you looking for?</h2>
+        <p class="hero-copy">Search the indexed translation by hymn, deity, image or idea. Every result keeps its page reference.</p>
+        <form class="search-form" id="searchForm">
+          <span class="search-icon">⌕</span>
+          <input id="query" type="search" placeholder="Try “Agni”, “dawn”, or “hymn 10.129”" autocomplete="off">
+          <button type="submit">Search <span>↵</span></button>
+        </form>
+        <div class="suggestions" aria-label="Suggested searches">
+          <span>Explore</span><button data-query="Agni">Agni</button><button data-query="Indra">Indra</button><button data-query="dawn">Dawn</button><button data-query="creation">Creation</button>
+        </div>
+      </section>
+
+      <section class="results-section">
+        <div class="results-heading"><div><p class="kicker">Retrieved passages</p><h3 id="resultsTitle">A considered beginning</h3></div><span id="resultCount">3 passages</span></div>
+        <div id="results" class="results-list">
+          <article class="result-card featured">
+            <div class="result-meta"><span class="source-badge">Ṛgveda</span><span>Mandala 1 · Hymn 1</span><span>p. 35</span></div>
+            <h4>Agni, placed in front</h4>
+            <p class="result-text">“I laud Agni, placed in front, the god, the minister of the sacrifice, the hotar, most lavish bestower of treasure.”</p>
+            <div class="result-bottom"><span class="match-label">Matched in translation</span><button class="open-result">Open passage <span>↗</span></button></div>
+          </article>
+          <article class="result-card">
+            <div class="result-meta"><span class="source-badge">Ṛgveda</span><span>Introduction · The gods</span><span>p. 40</span></div>
+            <h4>The nature of the gods</h4>
+            <p class="result-text">The hymns to Agni come first, followed by those to Indra. After these collections are the hymns to other deities.</p>
+            <div class="result-bottom"><span class="match-label">Context passage</span><button class="open-result">Open passage <span>↗</span></button></div>
+          </article>
+          <article class="result-card">
+            <div class="result-meta"><span class="source-badge">Ṛgveda</span><span>Mandala 10 · Hymn 129</span><span>p. 1,648</span></div>
+            <h4>Before existence and non-existence</h4>
+            <p class="result-text">A passage from the hymn traditionally known for its questions about origins, being and the limits of human knowledge.</p>
+            <div class="result-bottom"><span class="match-label">Related passage</span><button class="open-result">Open passage <span>↗</span></button></div>
+          </article>
+        </div>
+        <div id="emptyState" class="empty-state" hidden>No passages found in this preview. Try one of the suggested searches.</div>
+      </section>
+    </main>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
